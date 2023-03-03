@@ -1,5 +1,7 @@
 # Practice Projects
 
+https://chrissoncrant.github.io/practice-projects/
+
 This is a project directory of practice projects. 
 
 Each project in this directory is a means to practice project design and execution. 
