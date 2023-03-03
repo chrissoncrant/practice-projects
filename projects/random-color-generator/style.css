@@ -1,0 +1,149 @@
+:root {
+    --color-black: #0b0b0b;
+    --color-white: white;
+    --color-primary: #730040;
+    --color-secondary: #FF1313;
+    --color-highlight-primary: #BB029E;
+    --color-secondary-primary: #D01571;
+
+    --font-body: 'Kadwa', serif;
+    --font-header: 'Kanit', sans-serif;
+}
+
+/* ####################### */
+/* CSS Resets */
+/* ####################### */
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    line-height: 1.6;
+    font-family: var(--font-body);
+    min-height: 100vh;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input, 
+button, 
+textarea, 
+select {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: var(--color-highlight-primary) 3px solid;
+}
+
+/* ####################### */
+/* Utilities */
+/* ####################### */
+
+/* Cover Component - For Full Screen Layout */
+.cover {
+    display:flex;
+    flex-direction: column;
+}
+
+.cover-full-height {
+    min-height: 100vh;
+}
+
+.cover-middle_expand {
+    flex: 1;
+}
+
+.cover-middle_center {
+    margin-block: auto;
+}
+
+/* ####################### */
+/* Basic Styling */
+/* ####################### */
+
+.logo-container {
+    margin-inline: auto;
+    width: 90px;
+    padding: 20px;
+}
+
+.color-display {
+    background-color: var(--color-white);
+    min-height: 175px;
+    transition: background-color 500ms;
+}
+
+.initial-message {
+    width: 15ch;
+    font-size: 1.3rem;
+    margin-inline: auto;
+    text-align: center;
+    color: var(--color-black);
+}
+
+.color-info-display {
+    background-color: var(--color-white);
+    border: solid currentColor;
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--color-black);
+    margin: auto;
+    opacity: 0;
+    transition: 
+        color 500ms,
+        opacity 1000ms;
+}
+
+.color-info-display:hover {
+    opacity: 1;
+}
+
+.color-hex {
+    margin-top: 16px;
+}
+
+.button-container {
+    padding-block: 36px;
+}
+
+.btn-main {
+    font-family: var(--font-header);
+    font-weight: bold;
+    font-size: 2rem;
+    cursor: pointer;
+    display: block;
+    margin-inline: auto;
+    padding: 8px 36px;
+
+    border: none;
+    border-radius: 36px;
+
+    transition: 
+    color 500ms,
+    background-color 500ms,    
+    outline 200ms;
+}
+
+.btn-main:hover {
+    outline: var(--color-white) solid 3px;
+    background-color: var(--color-black);
+    color: white;
+}
+
+footer {
+    font-size: 0.8rem;
+    text-align: center;
+    padding-bottom: 12px;
+}
