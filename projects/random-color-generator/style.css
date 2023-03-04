@@ -8,10 +8,14 @@
 
     --font-body: 'Kadwa', serif;
     --font-header: 'Kanit', sans-serif;
+
+    --font-size-normal: 1.2rem;
+    --font-size-large: 3rem;
+    --font-size-small: 0.8rem;
 }
 
 /* ####################### */
-/* CSS Resets */
+/* CSS RESETS */
 /* ####################### */
 
 *,
@@ -25,6 +29,7 @@
 body {
     line-height: 1.6;
     font-family: var(--font-body);
+    font-size: var(--font-size-normal);
     min-height: 100vh;
     background-color: var(--color-black);
     color: var(--color-white);
@@ -48,7 +53,7 @@ select {
 }
 
 /* ####################### */
-/* Utilities */
+/* UTILITIES */
 /* ####################### */
 
 /* Cover Component - For Full Screen Layout */
@@ -70,7 +75,7 @@ select {
 }
 
 /* ####################### */
-/* Basic Styling */
+/* OTHER STYLING */
 /* ####################### */
 
 .logo-container {
@@ -93,6 +98,10 @@ select {
     color: var(--color-black);
 }
 
+/* ######################## */
+/* COLOR INFO DISPLAY */
+/* ######################## */
+
 .color-info-display {
     background-color: var(--color-white);
     border: solid currentColor;
@@ -101,6 +110,7 @@ select {
     color: var(--color-black);
     margin: auto;
     opacity: 0;
+    text-align: center;
     transition: 
         color 500ms,
         opacity 1000ms;
@@ -110,9 +120,24 @@ select {
     opacity: 1;
 }
 
+.color-info-display p span {
+    display: block;
+    font-weight: bold;
+}
+
+.color-info-display p span:first-child {
+    font-size: var(--font-size-small);
+    font-weight: normal;
+}
+
 .color-hex {
     margin-top: 16px;
+    font-weight: bold;
 }
+
+/* ######################## */
+/* BUTTON */
+/* ######################## */
 
 .button-container {
     padding-block: 36px;
@@ -121,7 +146,7 @@ select {
 .btn-main {
     font-family: var(--font-header);
     font-weight: bold;
-    font-size: 2rem;
+    font-size: calc(var(--font-size-large) - 1rem);
     cursor: pointer;
     display: block;
     margin-inline: auto;
@@ -131,9 +156,9 @@ select {
     border-radius: 36px;
 
     transition: 
-    color 500ms,
-    background-color 500ms,    
-    outline 200ms;
+        color 500ms,
+        background-color 500ms,    
+        outline 200ms;
 }
 
 .btn-main:hover {
@@ -141,6 +166,10 @@ select {
     background-color: var(--color-black);
     color: white;
 }
+
+/* ######################## */
+/* FOOTER */
+/* ######################## */
 
 footer {
     font-size: 0.8rem;

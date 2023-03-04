@@ -4,8 +4,8 @@ const colorDisplay = document.querySelector('.color-display');
 const colorInfoElement = function(colorName, colorHex) {
     return `
 <div class="color-info-display">
-    <p class="color-name">Closest Named Color: <span>${colorName}</span></p>
-    <p class="color-hex">${colorHex}</p>
+    <p class="color-name"><span>Closest Named Color:</span><span>${colorName}</span></p>
+    <p class="color-hex"><span>Color Hex Code:</span><span>${colorHex}</span></p>
 </div>`
 };
 
@@ -49,8 +49,8 @@ randomColorButton.addEventListener('click', async (e) => {
         colorDisplay.innerHTML = colorInfoElement(name.value, hex.value);
         state.initialLoad = false;
     } else {
-        document.querySelector('.color-name span').textContent = name.value;
-        document.querySelector('.color-hex').textContent = hex.value;
+        document.querySelector('.color-name span:nth-child(2)').textContent = name.value;
+        document.querySelector('.color-hex span:nth-child(2)').textContent = hex.value;
     }
 })
 
