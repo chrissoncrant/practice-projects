@@ -1,5 +1,6 @@
 const randomColorButton = document.querySelector('#random-color-btn');
 const colorDisplay = document.querySelector('.color-display');
+
 const colorInfoElement = function(colorName, colorHex) {
     return `
 <div class="color-info-display">
@@ -8,10 +9,13 @@ const colorInfoElement = function(colorName, colorHex) {
 </div>`
 };
 
+function getRandomHexColor() {
+    const randomHex = Math.floor(Math.random() * 16777215).toString(16);
+    return randomHex.toUpperCase();
+}
 
 const state = {
     initialLoad: true,
-    colorInfoAdded: false
 };
 
 const colorArray = [];
@@ -21,44 +25,36 @@ const stylesheet = document.styleSheets[1];
 
 const focusVisibleRule = [...stylesheet.cssRules].find(r => r.selectorText === ":focus-visible");
 
-console.log(focusVisibleRule);
+// console.log(focusVisibleRule);
 
 focusVisibleRule.style.setProperty('outline', 'violet 3px solid')
 
 randomColorButton.addEventListener('click', async (e) => {
-    
-    if (state.initialLoad) {
-        document.querySelector('.initial-message').style.display = "none";
-        state.initialLoad = false;
-    }
-    
     const color = getRandomHexColor();
 
     colorDisplay.style.backgroundColor = `#${color}`;
 
+    //Make GET request to get color information
     const colorURL = `https://www.thecolorapi.com/id?hex=${color}`;
 
-    //Make GET request to get color information
     const response = await fetch(colorURL);
 
-    const data = await response.json();
+    const { hex, name } = await response.json();
 
-    // console.log(data);
+    console.log(hex, name);
 
     //Update the color-info display
-    if (!state.colorInfoAdded) {
-        colorDisplay.innerHTML = colorInfoElement(data.name.value, data.hex.value);
-        state.colorInfoAdded = true;
+    if (state.initialLoad) {
+        document.querySelector('.initial-message').style.display = "none";
+        colorDisplay.innerHTML = colorInfoElement(name.value, hex.value);
+        state.initialLoad = false;
     } else {
-        document.querySelector('.color-name span').textContent = data.name.value;
-        document.querySelector('.color-hex').textContent = data.hex.value;
+        document.querySelector('.color-name span').textContent = name.value;
+        document.querySelector('.color-hex').textContent = hex.value;
     }
 })
 
-function getRandomHexColor() {
-    const randomHex = Math.floor(Math.random() * 16777215).toString(16);
-    return randomHex.toUpperCase();
-}
+
 
 //MODEL OF THE COLOR DATA FROM COLOR API:
 // {
