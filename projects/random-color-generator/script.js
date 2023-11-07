@@ -18,8 +18,6 @@ const state = {
     initialLoad: true,
 };
 
-const colorArray = [];
-
 //Updating the Outline
 const stylesheet = document.styleSheets[1];
 
@@ -27,7 +25,11 @@ const focusVisibleRule = [...stylesheet.cssRules].find(r => r.selectorText === "
 
 // console.log(focusVisibleRule);
 
-focusVisibleRule.style.setProperty('outline', 'violet 3px solid')
+focusVisibleRule.style.setProperty('outline', 'violet 3px solid');
+
+// ###########################
+// EVENTS
+// ###########################
 
 randomColorButton.addEventListener('click', async (e) => {
     const color = getRandomHexColor();
@@ -53,8 +55,6 @@ randomColorButton.addEventListener('click', async (e) => {
         document.querySelector('.color-hex span:nth-child(2)').textContent = hex.value;
     }
 })
-
-
 
 //MODEL OF THE COLOR DATA FROM COLOR API:
 // {
